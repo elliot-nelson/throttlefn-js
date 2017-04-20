@@ -1,0 +1,19 @@
+{
+  "name": "throttle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "throttle.js",
+  "dependencies": {
+    "jasmine": "^2.5.3",
+    "bluebird": "^3.5.0"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.5"
+  },
+  "scripts": {
+    "test": "jasmine",
+    "coverage": "istanbul cover jasmine"
+  },
+  "author": "Elliot Nelson",
+  "license": "MIT"
+}
