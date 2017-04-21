@@ -1,7 +1,10 @@
-dependencies:
-    pre:
-        - case $CIRCLE_NODE_INDEX in 0) NODE_VERSION=0.10 ;; 1) NODE_VERSION=4 ;; 2) NODE_VERSION=6 ;; esac; nvm install $NODE_VERSION && nvm alias default $NODE_VERSION
-
+#dependencies:
+#    pre:
+#        - case $CIRCLE_NODE_INDEX in 0) NODE_VERSION=0.10 ;; 1) NODE_VERSION=4 ;; 2) NODE_VERSION=6 ;; esac; nvm install $NODE_VERSION && nvm alias default $NODE_VERSION
+#
 test:
     override:
-        - npm test
+        #      - npm test
+        - nvm use 0.10 && npm test
+        - nvm use 0.12 && npm test
+        - nvm use 4.0 && npm test
