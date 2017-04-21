@@ -1,13 +1,17 @@
 {
-  "name": "throttle",
+  "name": "throttlefn",
   "version": "1.0.0",
-  "description": "",
-  "main": "throttle.js",
+  "description": "Generic function throttling/guarding for nodejs",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elliot-nelson/throttlefn.git"
+  },
   "dependencies": {
-    "jasmine": "^2.5.3",
     "bluebird": "^3.5.0"
   },
   "devDependencies": {
+    "jasmine": "^2.5.3",
     "istanbul": "^0.4.5"
   },
   "scripts": {
