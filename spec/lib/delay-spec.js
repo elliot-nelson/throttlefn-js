@@ -1,9 +1,9 @@
 var Promise = require("bluebird");
-var concurrent = require("../../lib/concurrent");
+var delay = require("../../lib/delay");
 
-describe("concurrent", function () {
-    it("resolves after a concurrent slot is available", function (done) {
-        var condition = concurrent(3);
+describe("delay", function () {
+    it("resolves after the expected delay has passed", function (done) {
+        var condition = delay(250);
         var results = {};
 
         var fnA = condition().then(function (exit) {
@@ -21,24 +21,22 @@ describe("concurrent", function () {
 
         setTimeout(function () {
             expect(typeof results.a).toBe("function");
+            expect(typeof results.b).toBe("undefined");
+            expect(typeof results.c).toBe("undefined");
+            expect(typeof results.d).toBe("undefined");
+        }, 5);
+        setTimeout(function () {
+            expect(typeof results.a).toBe("function");
             expect(typeof results.b).toBe("function");
             expect(typeof results.c).toBe("function");
             expect(typeof results.d).toBe("undefined");
-
-            results.b();
-        }, 25);
-
+        }, 600);
         setTimeout(function () {
             expect(typeof results.a).toBe("function");
             expect(typeof results.b).toBe("function");
             expect(typeof results.c).toBe("function");
             expect(typeof results.d).toBe("function");
-
-            results.a();
-            results.c();
-            results.d();
-
-            process.nextTick(done);
-        }, 50);
+            done();
+        }, 1001);
     });
 });

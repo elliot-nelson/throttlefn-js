@@ -15,18 +15,17 @@ describe("throttlefn", function () {
             resultValue = result;
         });
 
-        process.nextTick(function () {
+        setTimeout(function () {
             expect(f.calls.allArgs()).toEqual([]);
             expect(exit.calls.allArgs()).toEqual([]);
             deferred.resolve(exit);
-
-            process.nextTick(function () {
-                expect(f.calls.allArgs()).toEqual([["example", "args"]]);
-                expect(exit.calls.allArgs()).toEqual([[]]);
-                expect(resultValue).toEqual("example-result");
-                done();
-            });
-        });
+        }, 25);
+        setTimeout(function () {
+            expect(f.calls.allArgs()).toEqual([["example", "args"]]);
+            expect(exit.calls.allArgs()).toEqual([[]]);
+            expect(resultValue).toEqual("example-result");
+            done();
+        }, 50);
     });
 
     it("skips call to f if condition resolves with no exit function", function (done) {
@@ -42,17 +41,16 @@ describe("throttlefn", function () {
             resultValue = result;
         });
 
-        process.nextTick(function () {
+        setTimeout(function () {
             expect(f.calls.allArgs()).toEqual([]);
             expect(exit.calls.allArgs()).toEqual([]);
             deferred.resolve();
-
-            process.nextTick(function () {
-                expect(f.calls.allArgs()).toEqual([]);
-                expect(exit.calls.allArgs()).toEqual([]);
-                expect(resultValue).toEqual(undefined);
-                done();
-            });
-        });
+        }, 25);
+        setTimeout(function () {
+            expect(f.calls.allArgs()).toEqual([]);
+            expect(exit.calls.allArgs()).toEqual([]);
+            expect(resultValue).toEqual(undefined);
+            done();
+        }, 50);
     });
 });
