@@ -9,11 +9,11 @@ describe("throttle", function () {
             a: 0,
             b: 100,
             c: 250,
-            d: 501,
+            d: 600,
             e: 750,
             f: 950,
-            g: 1050,
-            h: 1100
+            g: 1180,
+            h: 1200
         };
        
         Object.keys(timers).forEach(function (key) {
@@ -34,6 +34,6 @@ describe("throttle", function () {
             expect(typeof results.g).toBe("function");
             expect(typeof results.h).toBe("undefined");
             done();
-        }, 1200);
+        }, 1400);
     });
 });
