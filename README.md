@@ -38,7 +38,7 @@ the number of concurrent executions of an asynchronous function.
 
 #### concurrent / n
 
-Prevents more than _n_ concurrent executions of the provided functions.
+Prevents more than _n_ concurrent executions of the provided function.
 Additional calls to the function will queue up behind the running calls and
 execute in the order they were received.
 
