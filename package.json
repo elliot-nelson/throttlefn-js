@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/elliot-nelson/throttlefn.git"
+    "url": "https://github.com/elliot-nelson/throttlefn-js.git"
   },
   "dependencies": {
     "bluebird": "^3.5.0"
