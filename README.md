@@ -60,6 +60,32 @@ will automatically be wrapped in a Promise by throttlefn.
     throttlefn(throttlefn.delay(333), myFunction)
     throttlefn(throttlefn.ms(333), myFunction)
 
+#### throttle
+
+Ensures that at least _ms_ milliseconds pass between each execution of the
+provided function. Unlike delay, throttle will _discard_ function calls instead
+of queueing them.
+
+Your function can return either a Promise or a raw value with this condition.
+The wrapped function will always return a Promise.
+
+    throttlefn(throttlefn.throttle(250), myFunction);
+
+Note that if your function call is discarded, the returned promise will always
+resolve to `undefined`. You can use this fact if you want to perform additional
+conditional logic only if the call succeeded.
+
+    var nextFrame = throttlefn(throttlefn.throttle(33), function () {
+        // perform some kind of frame logic
+        return true;
+    });
+
+    nextFrame().then(function (updated) {
+        if (updated) {
+            // this logic executes if nextFrame actually ran
+        }
+    });
+
 #### Roll your own
 
 You can create your own custom conditions if you need more precise control
