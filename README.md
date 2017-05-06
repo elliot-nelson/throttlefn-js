@@ -47,6 +47,9 @@ This condition requires your function to return a Promise.
     throttlefn(throttlefn.concurrent(3), myFunction)
     throttlefn(throttlefn.n(3), myFunction)
 
+You can pass this condition a positive integer _or_ a function that returns
+a positive integer, allowing you to dynamically adjust concurrent executions.
+
 #### delay / ms
 
 Ensures that at least _ms_ milliseconds pass between each execution of the
@@ -60,6 +63,9 @@ will automatically be wrapped in a Promise by throttlefn.
     throttlefn(throttlefn.delay(333), myFunction)
     throttlefn(throttlefn.ms(333), myFunction)
 
+You can pass this condition a positive integer _or_ a function that returns
+a positive integer, allowing you to dynamically adjust the desired delay.
+
 #### throttle
 
 Ensures that at least _ms_ milliseconds pass between each execution of the
@@ -70,6 +76,9 @@ Your function can return either a Promise or a raw value with this condition.
 The wrapped function will always return a Promise.
 
     throttlefn(throttlefn.throttle(250), myFunction);
+
+You can pass this condition a positive integer _or_ a function that returns
+a positive integer, allowing you to dynamically adjust the desired delay.
 
 Note that if your function call is discarded, the returned promise will always
 resolve to `undefined`. You can use this fact if you want to perform additional
@@ -196,6 +205,22 @@ and override it during initialization.
     lion.speak();
     bird.speak();
     lion.speak();
+
+## Alternatives
+
+Looking for other libraries that provide similar functionality?
+
+* [underscore](http://underscorejs.org/) provides `throttle`, `debounce`, and a series
+  of other function wrappers. If you don't care about promises or the ability to queue
+  requests, you may be able to use these functions instead.
+
+* [when](https://github.com/cujojs/when) promise library provides `when/guard`, and was
+  the original inspiration for this library. If you're already using `when` then you
+  might not need anything else.
+
+* [bluebird](https://github.com/petkaantonov/bluebird) promise library provides a `Promise.map`
+  that allows you to control concurrency. This is less flexible than a reusable guard,
+  but if you're currently using bluebird, it's worth looking at.
 
 ## License
 
