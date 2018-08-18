@@ -19,6 +19,36 @@ jobs:
     <<: *defaults
     docker:
       - image: node:6
+  node-v6-bluebird:
+    <<: *defaults
+    docker:
+      - image: node:6
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Install bluebird
+          command: npm install bluebird
+      - run:
+          name: Test
+          command: npm test
+  node-v6-when:
+    <<: *defaults
+    docker:
+      - image: node:6
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Install when 
+          command: npm install when
+      - run:
+          name: Test
+          command: npm test
   node-v8:
     <<: *defaults
     docker:
@@ -33,6 +63,8 @@ workflows:
   node-multi-build:
     jobs:
       - node-v6
+      - node-v6-bluebird
+      - node-v6-when
       - node-v8
       - node-v10
 
