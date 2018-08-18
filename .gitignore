@@ -1,4 +1,4 @@
 coverage
-coverage-tmp
+.coverage-tmp
 node_modules
 npm-debug.log
