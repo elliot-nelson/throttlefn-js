@@ -1,0 +1,38 @@
+version: 2
+
+jobs:
+  defaults: &defaults
+    docker:
+      - image: node
+    steps:
+      - run:
+        name: Node Version
+        command: node -v
+      - checkout
+      - run:
+        name: Install dependencies
+        command: npm install
+      - run:
+        name: Test
+        command: npm test
+  node-v6:
+    <<: *defaults
+    docker:
+      - image: node:6
+  node-v8:
+    <<: *defaults
+    docker:
+      - image: node:8
+  node-v10:
+    <<: *defaults
+    docker:
+      - image: node:10
+
+workflows:
+  version: 2
+  node-multi-build:
+    jobs:
+      - node-v6
+      - node-v8
+      - node-v10
+
