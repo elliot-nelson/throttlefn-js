@@ -1,4 +1,3 @@
-var Promise = require("bluebird");
 var delay = require("../../lib/delay");
 
 describe("delay", function () {

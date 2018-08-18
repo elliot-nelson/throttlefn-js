@@ -1,4 +1,3 @@
-var Promise = require("bluebird");
 var concurrent = require("../../lib/concurrent");
 
 describe("concurrent", function () {

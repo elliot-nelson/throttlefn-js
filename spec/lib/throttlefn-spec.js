@@ -1,4 +1,3 @@
-var Promise = require("bluebird");
 var throttlefn = require("../../lib/throttlefn");
 
 describe("throttlefn", function () {
