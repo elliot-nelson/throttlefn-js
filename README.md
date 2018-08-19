@@ -2,7 +2,7 @@
 
 A collection of promise-based function throttling and guarding methods for nodejs.
 
-Tested on node versions 0.10, 0.12, 4.x, 6.x.
+Tested on node versions 4.x, 6.x, 8.x, 10.x.
 
 ## Installation
 
@@ -205,6 +205,17 @@ and override it during initialization.
     lion.speak();
     bird.speak();
     lion.speak();
+
+## Promise Libraries
+
+To behave as constitently as possible with your application, `throttlefn` will detect
+if the `bluebird` or `when` promise libraries are installed and use them if possible.
+Otherwise, it will fall back to using node's default Promise implementation.
+
+To force `throttlefn` to use a particular implementation for its internal promises,
+set it, like so:
+
+    throttlefn.Promise = MyPromiseLibrary;
 
 ## Alternatives
 

@@ -17,10 +17,6 @@
     "test": "jasmine",
     "coverage": "nyc jasmine"
   },
-  "nyc": {
-    "report-dir": "./coverage",
-    "temp-directory": "./.coverage-tmp"
-  },
   "author": "Elliot Nelson",
   "license": "MIT"
 }
