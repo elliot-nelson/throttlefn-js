@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Broken links in changelog
 
 ## [2.0.0] - 2018-08-19
 ### Added
@@ -22,5 +24,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Specs and other misc dev files are no longer included in the published package
 
-[Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v2.0.0...HEAD
-[2.0.0]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.2.0...v2.0.0
+[Unreleased]: https://github.com/elliot-nelson/throttlefn-js/compare/v2.0.0...HEAD
+[2.0.0]:      https://github.com/elliot-nelson/throttlefn-js/compare/v1.2.0...v2.0.0
