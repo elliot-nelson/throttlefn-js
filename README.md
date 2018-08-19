@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/elliot-nelson/throttlefn-js.svg?style=svg)](https://circleci.com/gh/elliot-nelson/throttlefn-js)
+
 # throttlefn
 
 A collection of promise-based function throttling and guarding methods for nodejs.
