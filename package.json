@@ -1,6 +1,6 @@
 {
   "name": "throttlefn",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Generic function throttling/guarding for nodejs",
   "main": "index.js",
   "repository": {
