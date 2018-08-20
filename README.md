@@ -4,7 +4,7 @@
 
 A collection of promise-based function throttling and guarding methods for nodejs.
 
-Tested on node versions 4.x, 6.x, 8.x, 10.x.
+Tested on node versions 6.x, 8.x, 10.x.
 
 ## Installation
 
@@ -210,7 +210,7 @@ and override it during initialization.
 
 ## Promise Libraries
 
-To behave as constitently as possible with your application, `throttlefn` will detect
+To behave as consistently as possible with your application, `throttlefn` will detect
 if the `bluebird` or `when` promise libraries are installed and use them if possible.
 Otherwise, it will fall back to using node's default Promise implementation.
 
