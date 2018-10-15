@@ -1,19 +1,26 @@
-var throttlefn = require("../../lib/throttlefn");
+/**
+ * @author Elliot Nelson
+ * @license MIT License (c) copyright 2017 original author or authors
+ */
 
-describe("throttlefn", function () {
-    it("waits until condition resolves to call f", function (done) {
-        var resolver;
-        var p = new Promise(function (resolve, reject) {
+'use strict';
+
+const throttlefn = require('../../lib/throttlefn');
+
+describe('throttlefn', function () {
+    it('waits until condition resolves to call f', function (done) {
+        let resolver;
+        let p = new Promise(function (resolve, reject) {
             resolver = resolve;
         });
         
-        var f = jasmine.createSpy("f").and.returnValue("example-result");
-        var enter = jasmine.createSpy("enter").and.returnValue(p);
-        var exit = jasmine.createSpy("exit").and.returnValue();
-        var resultValue = {};
+        let f = jasmine.createSpy('f').and.returnValue('example-result');
+        let enter = jasmine.createSpy('enter').and.returnValue(p);
+        let exit = jasmine.createSpy('exit').and.returnValue();
+        let resultValue = {};
 
-        var throttled = throttlefn(enter, f);
-        throttled("example", "args").then(function (result) {
+        let throttled = throttlefn(enter, f);
+        throttled('example', 'args').then(function (result) {
             resultValue = result;
         });
 
@@ -23,26 +30,26 @@ describe("throttlefn", function () {
             resolver(exit);
         }, 25);
         setTimeout(function () {
-            expect(f.calls.allArgs()).toEqual([["example", "args"]]);
+            expect(f.calls.allArgs()).toEqual([['example', 'args']]);
             expect(exit.calls.allArgs()).toEqual([[]]);
-            expect(resultValue).toEqual("example-result");
+            expect(resultValue).toEqual('example-result');
             done();
         }, 50);
     });
 
-    it("skips call to f if condition resolves with no exit function", function (done) {
-        var resolver;
-        var p = new Promise(function (resolve, reject) {
+    it('skips call to f if condition resolves with no exit function', function (done) {
+        let resolver;
+        let p = new Promise(function (resolve, reject) {
             resolver = resolve;
         });
 
-        var f = jasmine.createSpy("f").and.returnValue("example-result");
-        var enter = jasmine.createSpy("enter").and.returnValue(p);
-        var exit = jasmine.createSpy("exit").and.returnValue();
-        var resultValue = {};
+        let f = jasmine.createSpy('f').and.returnValue('example-result');
+        let enter = jasmine.createSpy('enter').and.returnValue(p);
+        let exit = jasmine.createSpy('exit').and.returnValue();
+        let resultValue = {};
 
-        var throttled = throttlefn(enter, f);
-        throttled("example", "args").then(function (result) {
+        let throttled = throttlefn(enter, f);
+        throttled('example', 'args').then(function (result) {
             resultValue = result;
         });
 
