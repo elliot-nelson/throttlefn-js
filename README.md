@@ -1,3 +1,23 @@
+**NOTE: This package is no longer maintained and the module is deprecated.**
+
+For an equivalent, full-featured, and actively maintained module, check out [bottleneck](https://github.com/SGrondin/bottleneck).
+
+Their APIs are not identical, but conversion won't be difficult...
+
+```js
+// throttlefn
+const throttlefn = require("throttlefn");
+
+const wrapped = throttlefn(throttlefn.n(3), myFunction);
+
+// bottleneck
+const Bottleneck = require("bottleneck");
+
+const wrapped = new Bottleneck({ maxConcurrent: 3 }).wrap(myFunction);
+```
+
+---
+
 [![CircleCI](https://circleci.com/gh/elliot-nelson/throttlefn-js.svg?style=svg)](https://circleci.com/gh/elliot-nelson/throttlefn-js)
 
 # throttlefn
@@ -163,16 +183,16 @@ into a single function using `bind`.
 
     var guard = throttlefn.bind(undefined, throttlefn.n(5));
 
-    var functionA = guard(function () { /* ... */ }); 
-    var functionB = guard(function () { /* ... */ }); 
-    var functionC = guard(function () { /* ... */ }); 
+    var functionA = guard(function () { /* ... */ });
+    var functionB = guard(function () { /* ... */ });
+    var functionC = guard(function () { /* ... */ });
 
 ### Use with classes (prototypes)
 
 Throttled functions are totally safe as prototype methods.
 
     function Animal (name) {
-        this.name = name; 
+        this.name = name;
     }
 
     Animal.prototype.speak = throttlefn(throttlefn.delay(300), function () {
